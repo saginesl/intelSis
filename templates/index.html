@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Generator</title>
+    <style>
+        body {
+            background-color: #a5c7d18c;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            text-align: center;
+        }
+        h1 {
+            margin: 10px 0;
+            border: 2px solid #1d3a5a; /* Добавляем рамку */
+            padding: 10px; /* Добавляем отступы внутри рамки */
+            border-radius: 8px; /* Закругленные углы рамки */
+            background-color: white;
+        }
+        h2 {
+            text-align: left;
+            margin: 20px 40px;
+        }
+        img {
+            width: 27%; /* Увеличиваем размер изображения, но ограничиваем до 80% */
+            margin: 10px 0;
+            border-radius: 8px; /* Закругленные углы изображения */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+        }
+        form {
+            display: flex;
+            padding: 10 30px; /* Добавляем отступы */
+            padding-left: 40px;
+            margin-top: 25px;
+        }
+        button {
+            padding: 15px 30px; /* Увеличиваем размер кнопки */
+            font-weight: bold;
+            font-size: 16px; /* Увеличиваем размер шрифта кнопки */
+            cursor: pointer; /* Изменяем курсор при наведении */
+            background-color: #1d3a5a; /* Синий цвет фона кнопки */
+            color: white; /* Белый цвет текста кнопки */
+            border: none; /* Убираем стандартные границы */
+            border-radius: 10px; /* Закругленные углы кнопки */
+            transition: background-color 0.3s ease; /* Плавный переход цвета фона */
+        }
+        button:hover {
+            background-color: #115297; /* Темнее синий при наведении */
+        }
+    </style>
+</head>
+<body>
+    <h1>Генерирование Изображений</h1>
+    <form action="/generate" method="post">
+        <button type="submit">СГЕНЕРИРОВАТЬ</button>
+    </form>
+    {% if image_path %}
+        <h2>Сгенерированная картинка:</h2>
+        <img src="{{ image_path }}" alt="Generated Image" />
+    {% endif %}
+</body>
+</html>
